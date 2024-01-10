@@ -35,8 +35,15 @@ jobs:
       - name: Executing Kubectl command on Kubernetes Server Remotely
         uses: appleboy/ssh-action@v0.1.10
         with:
-         host: ${{ secrets.HOST }}
-         username: ${{ secrets.USERNAME }}
-         password: ${{ secrets.PASSWORD }}
-         port: ${{ secrets.PORT }}
-         script: kubectl get nodes
+         host: 54.91.184.165
+         username: root
+         password: root
+         port: 22
+         script: |
+           git clone -b https://github.com/Sonal0409/MavenBuild-SL.git
+           cd MavenBuild-SL
+           helm list -A
+           helm install mavenbuild-dev ./webapp
+           helm list -A
+           kubectl get all
+
