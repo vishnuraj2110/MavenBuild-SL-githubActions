@@ -40,7 +40,7 @@ jobs:
          password: root
          port: 22
          script: |
-           git clone -b https://github.com/Sonal0409/MavenBuild-SL.git
+           git clone https://github.com/Sonal0409/MavenBuild-SL.git
            cd MavenBuild-SL
            helm list -A
            helm install mavenbuild-dev ./webapp
