@@ -18,7 +18,7 @@ pipeline{
         
         stage('Clone the repo'){
             steps{
-              git 'https://github.com/Sonal0409/ATE_Phase2-Selenium-Jenkins-Jan24.git'  
+              git 'https://github.com/Sonal0409/MavenBuild-SL.git'  
             }
         }
 
