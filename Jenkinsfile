@@ -24,21 +24,21 @@ pipeline{
 
       stage('Compile the code'){
             steps{
-            sh 'mvn test'  
+            bat 'mvn test'  
             //bat :  you are running the command using windows command line(batch)
             }
         }
         
         stage('Execute the tests'){
             steps{
-            sh 'mvn test'  
+            bat 'mvn test'  
             //bat :  you are running the command using windows command line(batch)
             }
         }
 
         stage('Execute the package'){
             steps{
-            sh 'mvn package'  
+            bat 'mvn package'  
             //bat :  you are running the command using windows command line(batch)
             }
         }
