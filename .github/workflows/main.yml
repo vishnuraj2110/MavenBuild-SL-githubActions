@@ -2,7 +2,7 @@
 name: CICD using maven and SL lab 
 on: 
  push: 
-   branches: ["main"]
+   branches: ["master"]
  workflow_dispatch: 
 jobs: 
   buildandDeploy:
