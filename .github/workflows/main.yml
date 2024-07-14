@@ -1,0 +1,22 @@
+name: CICD Using Maven and SL lab
+# next we write what will trigger this workflow
+on:
+  push:
+    branches: [ "main"]
+  workflow_dispatch:   # this mean the workflow will be executed by you manually
+jobs:
+  buildandDeploy:
+    runs_on: ubuntu-latest
+    steps:
+      - name: Clone the Repo
+        uses: action/checkout@v4
+      - name: Setup JDK 11 and maven
+      uses: action/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+        cache: 'maven'
+      - name: Build with Maven  
+        run: mvn -B package --file pom.xml
+
+  
