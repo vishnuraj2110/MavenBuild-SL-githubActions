@@ -32,3 +32,12 @@ jobs:
           './target/*war' => /var/lib/tomcat9/webapps
        last_ssh: |
           sudo systemctl restart tomcat9
+
+    - name: Invoke Jenkins Deployment Job
+      uses: appleboy/jenkins-action@main
+      with:
+        url: 'http://16.171.0.253:8080'
+        user: 'admin'
+        token: '1153e83d86a96e872cee3dfa69e4d895f7'
+        job: 'slack_demo'
+
