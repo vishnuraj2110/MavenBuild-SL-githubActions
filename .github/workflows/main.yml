@@ -34,7 +34,7 @@ jobs:
           sudo systemctl restart tomcat9
 
     - name: Checkout code
-      uses: action/https://github.com/vishnuraj2110/MavenBuild-SL-githubActions.git@master
+      uses: vishnuraj2110/MavenBuild-SL-githubActions@master
 
     - name: Trigger Jenkins Job
       env:
