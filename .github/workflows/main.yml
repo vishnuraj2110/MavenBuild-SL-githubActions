@@ -11,7 +11,7 @@ jobs:
 
     steps: 
     - name: Clone the Repo 
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4 
 
     - name: Setup JDK 11 and Maven 
       uses: actions/setup-java@v4
@@ -38,12 +38,10 @@ jobs:
         last_ssh: |
           sudo systemctl restart tomcat9
 
-    - name: Trigger Jenkins Job
-      env:
-        JENKINS_USER: 'admin'
-        JENKINS_API_TOKEN: '1153e83d86a96e872cee3dfa69e4d895f7'
-        JENKINS_JOB_URL: 'http://16.171.0.253:8080/job/slack_demo/'
-      run: |
-        curl -X POST "${JENKINS_JOB_URL}/buildWithParameters" \
-        --user "${JENKINS_USER}:${JENKINS_API_TOKEN}" \
-        --data-urlencode "token=${{ secrets.JENKINS_API_TOKEN }}"
+    - name: Invoke Jenkins Deployment Job
+      uses: vishnuraj2110/MavenBuild-SL-githubActions@master
+      with:
+        url: 'http://16.171.0.253:8080'
+        user: 'admin'
+        token: '1153e83d86a96e872cee3dfa69e4d895f7'
+        job: 'slack_demo'
